@@ -137,6 +137,16 @@ class Monster extends BaseCharacter {
 var hero = new Hero("Brian", 130, 30);
 var monster = new Monster("Berseka", 130, 80);
 
+//按鍵觸發
+document.onkeyup = function(event){
+  var key = String.fromCharCode(event.keyCode);
+  if( key == "D"){
+    heroHeal();
+  } else if( key == "A"){
+    heroAttack();
+  }
+}
+
 //新增技能事件(攻擊,治癒)
 function addSkillEvent() {
   var skill = document.getElementById("skill");

@@ -10,6 +10,21 @@
   margin: 0px auto;
 }
 
+#rule {
+ text-align: center;
+}
+
+#rule .rule-info {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #767676;
+  opacity: 0.5;
+  color: #fff;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 #plane {
   height: 100%;
   text-align: center;
