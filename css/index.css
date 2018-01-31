@@ -115,6 +115,7 @@
 }
 
 #hero-image-block    .character-block .effect-image,
+#hero-image-block    .character-block .heal-image,
 #monster-image-block .character-block .effect-image {
   position: absolute;
   left: 60px;

@@ -81,13 +81,24 @@ class Hero extends BaseCharacter {
     this.updateHTML(this.hpElement, this.hurtElement);
     
     var _this = this;
-    _this.element.getElementsByClassName("heal-text")[0].classList.add("healed");
-    _this.element.getElementsByClassName("heal-text")[0].textContent = "30";
-    _this.element.getElementsByClassName("heal-text")[0].style.color = "green";
-    setTimeout(function(){
-      _this.element.getElementsByClassName("heal-text")[0].classList.remove("healed");
-      _this.element.getElementsByClassName("heal-text")[0].textContent = "";
-    }, 400)
+    var i = 1;
+    _this.id = setInterval(function(){
+      if(i == 1){
+        _this.element.getElementsByClassName("heal-image")[0].style.display = "block";
+        _this.element.getElementsByClassName("heal-text")[0].classList.add("healed");
+        _this.element.getElementsByClassName("heal-text")[0].textContent = "30";
+        _this.element.getElementsByClassName("heal-text")[0].style.color = "green";
+      }
+      _this.element.getElementsByClassName("heal-image")[0].src = "images/heal/" + i + ".png";
+      i ++;
+
+      if(i > 8 ){
+        _this.element.getElementsByClassName("heal-image")[0].style.display = "none";
+        _this.element.getElementsByClassName("heal-text")[0].classList.remove("healed");
+        _this.element.getElementsByClassName("heal-text")[0].textContent = "";
+        clearInterval(_this.id);
+      }
+    },80)
     
   }
 
