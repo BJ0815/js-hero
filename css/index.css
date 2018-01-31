@@ -124,6 +124,7 @@
 /* 設定transition class */
 /* 給 .hurt-text.attacked 使用*/
 #hero-image-block    .character-block .hurt-text,
+#hero-image-block    .character-block .heal-text,
 #monster-image-block .character-block .hurt-text {
   position: absolute;
   font-size: 60px;
@@ -136,6 +137,7 @@
 }
 
 #hero-image-block    .character-block .hurt-text.attacked,
+#hero-image-block    .character-block .heal-text.healed,
 #monster-image-block .character-block .hurt-text.attacked {
   bottom: 150px;
 }

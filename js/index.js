@@ -75,7 +75,20 @@ class Hero extends BaseCharacter {
 
   heal(){
     this.hp += 30;
+    if(this.hp > this.maxHp){
+      this.hp = this.maxHp;
+    }
     this.updateHTML(this.hpElement, this.hurtElement);
+    
+    var _this = this;
+    _this.element.getElementsByClassName("heal-text")[0].classList.add("healed");
+    _this.element.getElementsByClassName("heal-text")[0].textContent = "30";
+    _this.element.getElementsByClassName("heal-text")[0].style.color = "green";
+    setTimeout(function(){
+      _this.element.getElementsByClassName("heal-text")[0].classList.remove("healed");
+      _this.element.getElementsByClassName("heal-text")[0].textContent = "";
+    }, 400)
+    
   }
 
   getHurt(damage) {
@@ -126,11 +139,13 @@ function addSkillEvent() {
 }
 addSkillEvent();
 
+//-------- Hero治癒 -----------
 function heroHeal() {
   document.getElementsByClassName("skill-block")[0].style.display = "none";
-
   setTimeout(function(){
     hero.heal();
+  },100)
+  setTimeout(function(){
     monster.element.classList.add("attacking")
     setTimeout(function(){
       monster.attack(hero);
@@ -142,9 +157,10 @@ function heroHeal() {
         finish();
       }
     }, 500)
-  }, 100)
+  }, 700)
 }
 
+//---------- Hero攻擊 -----------
 function heroAttack() {
   document.getElementsByClassName("skill-block")[0].style.display = "none";
 
